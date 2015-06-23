@@ -1,3 +1,8 @@
+/*
+ *  Given a point of a list, this point is neither the header nor the 
+ *  tailer, now how to delete the node pointed by the pointer.
+ */
+
 #include<iostream>
 #include<list>
 using namespace std;
