@@ -2,6 +2,8 @@
 #include <string>
 using namespace std;
 
+// to get the length of max-length sub-array
+// note: the index is from zero.
 int nextindex(string patstr, int index) {
 	int nextpos = 0;
 	for(int k = 0; k < index; ++k) {
@@ -25,6 +27,8 @@ int kmp(string src, string pattern) {
 	int ptr = 0;
 	int matchcnt = 0;
 	while (ptr <= src.size() - pattern.size()) {
+		// for current index of pattern array. we should find
+		// the max-sublen of array[0 : (index-1)]
 		if (pattern[0] != src[ptr]) {
 			++ptr;
 			continue;
