@@ -59,6 +59,28 @@ TreeNode* inverseBTree (TreeNode* &root) {
 	return root;
 }
 
+/*
+ * tencent 2014笔试题
+ * */
+
+/* call form: if(t != NULL) count(t) */
+int N2, NL, NR, N0;
+void count(TreeNode *t) {
+	if(t->left != NULL)
+		if(t->right != NULL)	//myinsert
+			N2++;
+		else
+			NL++;
+	else if(t->right != NULL)	//myinsert
+		NR++;
+	else
+		N0++;					//myinsert
+	if(t->left != NULL)
+		count(t->left);
+	if(t->right != NULL)
+		count(t->right);
+}
+
 int main(int argc, char *argv[]) {
 	vector<int> a;
 //	string* s = new string[argc];
