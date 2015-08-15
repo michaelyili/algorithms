@@ -25,6 +25,18 @@ int maxSubSum(int *arr, int len) {
 	return curmax;
 }
 
+int maxSubSum1(int *arr, int len) {
+	int *subarr = new int[len];
+	subarr[0] = arr[0];
+	int maxsum = subarr[0];
+	for(int i=1; i<len; ++i) {
+		subarr[i] = subarr[i-1] > 0 ? subarr[i-1]+arr[i] : arr[i];
+		if(maxsum < subarr[i])
+			maxsum = subarr[i];
+	}
+	return maxsum;
+}
+
 int main(int argc, char* argv[])
 {
 	int N;
@@ -35,6 +47,7 @@ int main(int argc, char* argv[])
 	}
 
 	cout << maxSubSum(a, N) << endl;
+	cout << maxSubSum1(a, N) << endl;
 
 	return 0;
 }
